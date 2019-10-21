@@ -1,0 +1,39 @@
+{
+  "name": "vue-card-swipe",
+  "version": "1.0.0",
+  "description": "The card swipe for vue.js.",
+  "main": "src/index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "build": "webpack -p",
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eshengsky/vue-card-swipe.git"
+  },
+  "keywords": [
+    "Vue"
+  ],
+  "author": "Sky.Sun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eshengsky/vue-card-swipe/issues"
+  },
+  "homepage": "https://github.com/eshengsky/vue-card-swipe#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "autoprefixer": "^9.6.5",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "postcss-loader": "^3.0.0",
+    "precss": "^4.0.0",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.1",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
+  }
+}

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>vue-card-swipe example</title>
+    <style>
+			* {
+				box-sizing: border-box;
+			}
+			
+      .demo-block {
+        padding: 10px;
+      }
+
+      /* 防止背景图加载失败，上一级再设置一个兜底的背景 */
+      .demo-block.img-cards .card-swipe-item {
+        background: #aaa;
+        border-radius: 5px;
+      }
+
+      .detail-wrap {
+        display: block;
+        height: 100%;
+        border-radius: 5px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .detail-wrap h5 {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 0 15px;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        word-break: break-all;
+        font-size: 16px;
+        line-height: 20px;
+        color: #fff;
+        -webkit-line-clamp: 2;
+        max-height: 38px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-shadow: 0px 0px 4px #333;
+      }
+
+      .color-card {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 36px;
+      }
+
+      .msg {
+        font-size: 14px;
+        margin: 10px 0 0 10px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <div class="demo-block img-cards">
+          <h5>左右堆叠</h5>
+          <card-swipe>
+            <card-swipe-item v-for="(item, index) in list" :key="index">
+              <a
+                class="detail-wrap"
+                :style="{ backgroundImage: `url('${item.image}')` }"
+                @click="redirect"
+              >
+                <h5>{{ item.title }}</h5>
+              </a>
+            </card-swipe-item>
+          </card-swipe>
+        </div>
+        <div class="demo-block img-cards">
+          <h5>向右堆叠</h5>
+          <card-swipe stack="right">
+            <card-swipe-item v-for="(item, index) in list" :key="index">
+              <a
+                class="detail-wrap"
+                :style="{ backgroundImage: `url('${item.image}')` }"
+                @click="redirect"
+              >
+                <h5>{{ item.title }}</h5>
+              </a>
+            </card-swipe-item>
+          </card-swipe>
+        </div>
+        <div class="demo-block img-cards">
+          <h5>向左堆叠</h5>
+          <card-swipe stack="left">
+            <card-swipe-item v-for="(item, index) in list" :key="index">
+              <a
+                class="detail-wrap"
+                :style="{ backgroundImage: `url('${item.image}')` }"
+                @click="redirect"
+              >
+                <h5>{{ item.title }}</h5>
+              </a>
+            </card-swipe-item>
+          </card-swipe>
+        </div>
+        <div class="demo-block" style="padding: 10px 80px;">
+          <h5>自定义宽高比</h5>
+          <card-swipe :ratio="1">
+            <card-swipe-item>
+              <div
+                class="color-card"
+                style="background-image: linear-gradient(to right, #fe686c 0%, #fe3c71 100%)"
+              >
+                1
+              </div>
+            </card-swipe-item>
+            <card-swipe-item>
+              <div
+                class="color-card"
+                style="background-image: linear-gradient(to right, #ffaa00 0%, #ff8800 100%);"
+              >
+                2
+              </div>
+            </card-swipe-item>
+            <card-swipe-item>
+              <div
+                class="color-card"
+                style="background-image: linear-gradient(to right, #add0f8 0%, #5ca2f8 100%);"
+              >
+                3
+              </div>
+            </card-swipe-item>
+          </card-swipe>
+        </div>
+        <div class="demo-block">
+          <h5>事件监听</h5>
+          <card-swipe @resume="onResume" @change="onChange">
+            <card-swipe-item>
+              <div
+                class="color-card"
+                style="background-image: linear-gradient(to right, #fe686c 0%, #fe3c71 100%)"
+              >
+                1
+              </div>
+            </card-swipe-item>
+            <card-swipe-item>
+              <div
+                class="color-card"
+                style="background-image: linear-gradient(to right, #ffaa00 0%, #ff8800 100%);"
+              >
+                2
+              </div>
+            </card-swipe-item>
+            <card-swipe-item>
+              <div
+                class="color-card"
+                style="background-image: linear-gradient(to right, #add0f8 0%, #5ca2f8 100%);"
+              >
+                3
+              </div>
+            </card-swipe-item>
+          </card-swipe>
+          <p class="msg">{{ evtMessage }}</p>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.min.js"></script>
+    <script src="../dist/vue-card-swipe.min.js"></script>
+    <script>
+      new Vue({
+				el: '#app',
+        components: {
+					CardSwipe: VueCardSwipe.CardSwipe,
+					CardSwipeItem: VueCardSwipe.CardSwipeItem
+        },
+        data: {
+          list: [
+            {
+              title:
+                "上海迪士尼乐园上海迪士尼乐园上海迪士尼乐园上海迪士尼乐园上海迪士尼乐园上海迪士尼乐园上海迪士尼乐园",
+              image:
+                "https://pics.lvjs.com.cn//uploads/pc/place2/2019-10-09/dc9447f5-5b77-47da-9532-307bdc87d353.jpg"
+            },
+            {
+              title: "常州恐龙园",
+              image:
+                "https://pics.lvjs.com.cn//uploads/pc/place2/2019-10-09/7a980b40-b059-40e6-addb-d39e09f3e692.jpg"
+            },
+            {
+              title: "上海海昌海洋公园",
+              image:
+                "https://pics.lvjs.com.cn//uploads/pc/place2/2019-06-05/794c585a-7c96-4dcc-8351-ac5b8d3eb94f.jpg"
+            },
+            {
+              title: "常州2天1晚",
+              image:
+                "https://pics.lvjs.com.cn//uploads/pc/place2/2016-04-22/c92b92a4-7eb6-4b67-a546-2769a6bd1dcd.jpg"
+            }
+          ],
+          evtMessage: ""
+        },
+        methods: {
+          redirect() {
+            location.href = "https://m.lvmama.com";
+          },
+          onResume(currentIndex) {
+            this.evtMessage = `卡片 ${currentIndex} 已复位`;
+          },
+          onChange(lastIndex, currentIndex) {
+            this.evtMessage = `卡片 ${lastIndex} 被切换为卡片 ${currentIndex}`;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
