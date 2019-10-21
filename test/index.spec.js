@@ -1,4 +1,4 @@
-import { CardSwipe, CardSwipeItem } from '../src/index';
+import { CardSwipe, CardSwipeItem } from '../';
 import { triggerDrag } from './utils';
 import { mount } from '@vue/test-utils';
 import { render } from '@vue/server-test-utils'

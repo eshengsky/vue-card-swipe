@@ -1,14 +1,15 @@
 {
-  "name": "vue-card-swipe",
-  "version": "1.0.0",
+  "name": "@eshengsky/vue-card-swipe",
+  "version": "1.0.1",
   "description": "The card swipe for vue.js.",
-  "main": "src/index.js",
+  "main": "dist/vue-card-swipe.min.js",
   "directories": {
     "example": "example"
   },
   "scripts": {
     "build": "webpack -p",
-    "test": "jest"
+    "test": "jest",
+    "publish": "npm publish --access=public"
   },
   "repository": {
     "type": "git",

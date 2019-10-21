@@ -1,11 +1,14 @@
 ## vue-card-swipe
 
-卡片切换组件，通过滑动切换卡片，同时兼容 PC 端和移动端。
+卡片切换组件，通过滑动切换卡片，兼容 PC 端和移动端。
+
+### Demo
+[![Edit vue-card-swipe demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/vue-card-swipe-demo-jl77r?fontsize=14)
 
 ### 安装
 
 ```bash
-$ npm i --save vue-card-swipe
+$ npm i --save @eshengsky/vue-card-swipe
 ```
 
 ### 引入
@@ -14,15 +17,15 @@ $ npm i --save vue-card-swipe
 
 ```javascript
 // ES6 modules 写法
-import { CardSwipe, CardSwipeItem } from 'vue-card-swipe';
+import { CardSwipe, CardSwipeItem } from '@eshengsky/vue-card-swipe';
 
 // CommonJS 写法
-const { CardSwipe, CardSwipeItem } = require('vue-card-swipe');
+const { CardSwipe, CardSwipeItem } = require('@eshengsky/vue-card-swipe');
 ```
 
 #### 通过script标签引入
 ```html
-<script src="./node_modules/vue-card-swipe/dist/vue-card-swipe.min.js"></script>
+<script src="./node_modules/@eshengsky/vue-card-swipe/dist/vue-card-swipe.min.js"></script>
 ```
 
 ```javascript
@@ -75,3 +78,18 @@ Vue.component('card-swipe-item', CardSwipeItem);
 ```javascript
 this.$refs.cardSwipe.currentIndex;
 ```
+
+### 构建
+
+```bash
+$ npm run build
+```
+
+### 测试
+
+```bash
+$ npm test
+```
+
+### 许可
+MIT
