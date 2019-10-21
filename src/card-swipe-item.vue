@@ -50,7 +50,6 @@ export default {
       );
     },
     startHandler(event) {
-      console.log('start', event)
       if (!this.enableDrag) {
         return;
       }
@@ -119,7 +118,6 @@ export default {
         return;
       }
       const card = event.currentTarget;
-      // card.style.transition = "all 0.5s";
       this.$parent.draging = false;
       if (this.touchDistance > this.maxDistance) {
         // 1,2,3,4  2,3,4,1  3,4,1,2
@@ -139,7 +137,6 @@ export default {
       this.touchDistance = 0;
 
       setTimeout(() => {
-        // card.style.transform = "translate(0, 0)";
         card.removeAttribute("style");
       }, 30);
     }

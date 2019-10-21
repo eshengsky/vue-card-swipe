@@ -175,11 +175,12 @@
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.min.js"></script>
     <script src="../dist/vue-card-swipe.min.js"></script>
     <script>
+      const { CardSwipe, CardSwipeItem } = VueCardSwipe;
       new Vue({
 				el: '#app',
         components: {
-					CardSwipe: VueCardSwipe.CardSwipe,
-					CardSwipeItem: VueCardSwipe.CardSwipeItem
+					CardSwipe,
+					CardSwipeItem
         },
         data: {
           list: [
