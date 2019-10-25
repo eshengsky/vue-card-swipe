@@ -1,11 +1,8 @@
 {
   "name": "@eshengsky/vue-card-swipe",
-  "version": "1.0.1",
-  "description": "The card swipe for vue.js.",
+  "version": "1.0.2",
+  "description": "A touch slider for vue.js, support sliding in any direction to switch cards, compatible with PC and mobile.",
   "main": "dist/vue-card-swipe.min.js",
-  "directories": {
-    "example": "example"
-  },
   "scripts": {
     "build": "webpack -p",
     "test": "jest",
@@ -16,7 +13,12 @@
     "url": "git+https://github.com/eshengsky/vue-card-swipe.git"
   },
   "keywords": [
-    "Vue"
+    "Vue",
+    "swipe",
+    "vue-swipe",
+    "slide",
+    "slider",
+    "vue-slider"
   ],
   "author": "Sky.Sun",
   "license": "MIT",
